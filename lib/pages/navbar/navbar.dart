@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'requests.dart';
+import 'requests/requests.dart';
 import 'vacancy.dart';
 import 'candidates.dart';
 import 'account.dart';

@@ -11,28 +11,31 @@ class Onboarding extends StatefulWidget {
 
 class _OnboardingState extends State<Onboarding> {
 
+  static Map<String, String> get headers =>
+      {
+        "Content-Type": "application/json",
+      };
+
   int currentPage = 0;
 
   List<Map<String, String>> splashData = [
     {
-      "text": "Welcome to Tokoto, Let’s shop!",
+      "text": "Создавай заявку через свайпы",
       "image": "assets/images/splash_1.png"
     },
     {
       "text":
-      "We help people conect with store \naround United State of America",
+      "Заполняй блоками стандартную форму",
       "image": "assets/images/splash_2.png"
     },
     {
-      "text": "We show the easy way to shop. \nJust stay at home with us",
+      "text": "Встречайся с теми, кто тебе подходит",
       "image": "assets/images/splash_3.png"
     },
   ];
 
-  static String routeName = "/splash";
   @override
   Widget build(BuildContext context) {
-    // You have to call it on your starting screen
     SizeConfig().init(context);
     return Scaffold(
       body: SafeArea(
@@ -109,7 +112,7 @@ class _OnboardingState extends State<Onboarding> {
     children: <Widget>[
       Spacer(),
       Text(
-        "TOKOTO",
+        "РУКОВОДИТЕЛЬ",
         style: TextStyle(
           fontSize: getProportionateScreenWidth(36),
           color: kPrimaryColor,
