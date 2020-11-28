@@ -3,6 +3,8 @@ import 'data.dart';
 import '../../../../constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../widgets/default_button.dart';
+import '../../../../singleton.dart';
+import 'package:provider/provider.dart';
 
 class Seventh extends StatefulWidget {
   final PlanetInfo planetInfo;
@@ -65,6 +67,7 @@ class _SeventhState extends State<Seventh> {
                         Divider(color: Colors.black38),
                         SizedBox(height: 32),
                         Slider(
+                          activeColor: kPrimaryColor,
                           value: sliderValue,
                           onChanged: (value) => setState(() => sliderValue = value),
                         ),
@@ -93,6 +96,7 @@ class _SeventhState extends State<Seventh> {
                         ),
                         SizedBox(height: 32),
                         Slider(
+                          activeColor: kPrimaryColor,
                           value: sliderValue1,
                           onChanged: (value) => setState(() => sliderValue1 = value),
                         ),
@@ -102,10 +106,18 @@ class _SeventhState extends State<Seventh> {
                         ),
                         SizedBox(height: 32),
                         DefaultButton(
-                          text: "Продолжить",
+                          text: "Далее",
                           press: () {
-                            setState(() => descriptions[6] = "от " + doubleToString(sliderValue * 100000) + " до " + doubleToString(sliderValue1 * 100000));
-                            Navigator.pop(context);
+                            setState(() {
+                              Provider.of<Singleton>(context, listen: false).pageController.nextPage(
+                                  duration: Duration(milliseconds: 300), curve: Curves.ease);
+                              descriptions[6] =
+                                  "от " + doubleToString(sliderValue * 100000) +
+                                      " до " +
+                                      doubleToString(sliderValue1 * 100000);
+                              fullValue = descriptions[6];
+                            }
+                            );
                           },
                         ),
                       ],

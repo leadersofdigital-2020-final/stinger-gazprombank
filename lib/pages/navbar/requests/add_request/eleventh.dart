@@ -3,6 +3,8 @@ import 'data.dart';
 import '../../../../constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../widgets/default_button.dart';
+import '../../../../singleton.dart';
+import 'package:provider/provider.dart';
 
 class Eleventh extends StatefulWidget {
   final PlanetInfo planetInfo;
@@ -73,9 +75,10 @@ class _EleventhState extends State<Eleventh> {
                         SizedBox(height: 32),
                         SizedBox(height: 32),
                         DefaultButton(
-                          text: "Продолжить",
+                          text: "Создать",
                           press: () {
                             setState(() => descriptions[10] = textEditingController.text);
+                            Navigator.pop(context);
                             Navigator.pop(context);
                           },
                         ),

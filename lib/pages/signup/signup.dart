@@ -9,6 +9,7 @@ import 'or_divider.dart';
 import 'social_icon.dart';
 import '../login/login.dart';
 import '../navbar/navbar.dart';
+import '../../fade_animations.dart';
 
 class SignUpScreen extends StatelessWidget {
   @override
@@ -20,31 +21,34 @@ class SignUpScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
+              FadeAnimation(0, Text(
                 "ЗАРЕГИСТРИРОВАТЬСЯ",
                 style: TextStyle(fontWeight: FontWeight.bold),
-              ),
+              )),
               SizedBox(height: size.height * 0.03),
-              SvgPicture.asset(
-                "assets/icons/signup.svg",
-                height: size.height * 0.35,
+              FadeAnimation(
+                0.2,
+                SvgPicture.asset(
+                  "assets/icons/signup.svg",
+                  height: size.height * 0.35,
+                ),
               ),
-              RoundedInputField(
+              FadeAnimation(0.4, RoundedInputField(
                 hintText: "Ваш Email",
                 onChanged: (value) {},
-              ),
-              RoundedPasswordField(
+              ),),
+              FadeAnimation(0.6, RoundedPasswordField(
                 onChanged: (value) {},
-              ),
-              RoundedButton(
+              ),),
+              FadeAnimation(0.8, RoundedButton(
                 text: "ЗАРЕГИСТРИРОВАТЬСЯ",
                 press: () => Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Navbar()),
                 ),
-              ),
+              ),),
               SizedBox(height: size.height * 0.03),
-              AlreadyHaveAnAccountCheck(
+              FadeAnimation(1, AlreadyHaveAnAccountCheck(
                 login: false,
                 press: () {
                   Navigator.push(
@@ -56,9 +60,9 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   );
                 },
-              ),
-              OrDivider(),
-              Row(
+              ),),
+              FadeAnimation(1.2, OrDivider(),),
+              FadeAnimation(1.4, Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SocalIcon(
@@ -74,7 +78,7 @@ class SignUpScreen extends StatelessWidget {
                     press: () {},
                   ),
                 ],
-              )
+              ))
             ],
           ),
         ),

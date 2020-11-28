@@ -3,6 +3,8 @@ import 'data.dart';
 import '../../../../constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../widgets/default_button.dart';
+import '../../../../singleton.dart';
+import 'package:provider/provider.dart';
 
 class Tenth extends StatefulWidget {
   final PlanetInfo planetInfo;
@@ -73,10 +75,11 @@ class _TenthState extends State<Tenth> {
                         SizedBox(height: 32),
                         SizedBox(height: 32),
                         DefaultButton(
-                          text: "Продолжить",
+                          text: "Далее",
                           press: () {
+                            Provider.of<Singleton>(context, listen: false).pageController.nextPage(
+                                duration: Duration(milliseconds: 300), curve: Curves.ease);
                             setState(() => descriptions[9] = textEditingController.text);
-                            Navigator.pop(context);
                           },
                         ),
                       ],

@@ -116,6 +116,12 @@
       "languageVersion": "2.10"
     },
     {
+      "name": "nested",
+      "rootUri": "file:///Users/dyk.fam/Desktop/development/flutter/.pub-cache/hosted/pub.dartlang.org/nested-0.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.2"
+    },
+    {
       "name": "page_transition",
       "rootUri": "file:///Users/dyk.fam/Desktop/development/flutter/.pub-cache/hosted/pub.dartlang.org/page_transition-1.1.7+2",
       "packageUri": "lib/",
@@ -152,6 +158,48 @@
       "languageVersion": "2.7"
     },
     {
+      "name": "provider",
+      "rootUri": "file:///Users/dyk.fam/Desktop/development/flutter/.pub-cache/hosted/pub.dartlang.org/provider-4.3.2+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
+      "name": "sa_anicoto",
+      "rootUri": "file:///Users/dyk.fam/Desktop/development/flutter/.pub-cache/hosted/pub.dartlang.org/sa_anicoto-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
+      "name": "sa_liquid",
+      "rootUri": "file:///Users/dyk.fam/Desktop/development/flutter/.pub-cache/hosted/pub.dartlang.org/sa_liquid-1.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
+      "name": "sa_multi_tween",
+      "rootUri": "file:///Users/dyk.fam/Desktop/development/flutter/.pub-cache/hosted/pub.dartlang.org/sa_multi_tween-1.1.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
+      "name": "sa_stateless_animation",
+      "rootUri": "file:///Users/dyk.fam/Desktop/development/flutter/.pub-cache/hosted/pub.dartlang.org/sa_stateless_animation-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
+      "name": "sa_v1_migration",
+      "rootUri": "file:///Users/dyk.fam/Desktop/development/flutter/.pub-cache/hosted/pub.dartlang.org/sa_v1_migration-1.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.3"
+    },
+    {
+      "name": "simple_animations",
+      "rootUri": "file:///Users/dyk.fam/Desktop/development/flutter/.pub-cache/hosted/pub.dartlang.org/simple_animations-2.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Users/dyk.fam/Desktop/development/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -180,6 +228,18 @@
       "rootUri": "file:///Users/dyk.fam/Desktop/development/flutter/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.1.0-nullsafety.1",
       "packageUri": "lib/",
       "languageVersion": "2.10"
+    },
+    {
+      "name": "supercharged",
+      "rootUri": "file:///Users/dyk.fam/Desktop/development/flutter/.pub-cache/hosted/pub.dartlang.org/supercharged-1.11.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
+      "name": "supercharged_dart",
+      "rootUri": "file:///Users/dyk.fam/Desktop/development/flutter/.pub-cache/hosted/pub.dartlang.org/supercharged_dart-1.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
     },
     {
       "name": "term_glyph",
@@ -224,7 +284,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-11-28T05:08:15.004604Z",
+  "generated": "2020-11-28T13:51:36.087494Z",
   "generator": "pub",
   "generatorVersion": "2.10.4"
 }

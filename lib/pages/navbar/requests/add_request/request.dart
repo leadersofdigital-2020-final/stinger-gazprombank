@@ -5,18 +5,11 @@ import '../../../../constants.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'data.dart';
-import 'first.dart';
-import 'second.dart';
-import 'third.dart';
-import 'fourth.dart';
-import 'fifth.dart';
-import 'sixth.dart';
-import 'seventh.dart';
-import 'eighth.dart';
-import 'ninth.dart';
-import 'tenth.dart';
-import 'eleventh.dart';
 import '../../../../widgets/default_button.dart';
+import 'request_details.dart';
+import 'package:provider/provider.dart';
+import '../../../../singleton.dart';
+import 'package:provider/provider.dart';
 
 class AddRequest extends StatefulWidget {
   @override
@@ -24,20 +17,6 @@ class AddRequest extends StatefulWidget {
 }
 
 class _AddRequestState extends State<AddRequest> {
-
-  List<Widget> pages = [
-    First(planetInfo: planets[0]),
-    Second(planetInfo: planets[1]),
-    Third(planetInfo: planets[2]),
-    Fourth(planetInfo: planets[3]),
-    Fifth(planetInfo: planets[4]),
-    Sixth(planetInfo: planets[5]),
-    Seventh(planetInfo: planets[6]),
-    Eighth(planetInfo: planets[7]),
-    Ninth(planetInfo: planets[8]),
-    Tenth(planetInfo: planets[9]),
-    Eleventh(planetInfo: planets[10]),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -105,6 +84,7 @@ class _AddRequestState extends State<AddRequest> {
                 height: 500,
                 padding: const EdgeInsets.only(left: 32),
                 child: Swiper(
+                  controller: Provider.of<Singleton>(context, listen: false).swiperController,
                   itemCount: planets.length,
                   itemWidth: MediaQuery.of(context).size.width - 2 * 64,
                   layout: SwiperLayout.STACK,
@@ -118,7 +98,7 @@ class _AddRequestState extends State<AddRequest> {
                         Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, a, b) => pages[index]
+                            pageBuilder: (context, a, b) => RequestDetails()
                           ),
                         );
                       },
@@ -218,20 +198,23 @@ class _AddRequestState extends State<AddRequest> {
                   },
                 ),
               ),
-              DefaultButton(
-                text: "Создать",
-                press: () {
-                  travelSpots.insert(0,
-                    TravelSpot(
-                      users: users..shuffle(),
-                      name: "Программист-тестировщик",
-                      image: "assets/test.png",
-                      date: DateTime(2020, 10, 15),
-                    ),
-                  );
-                  print(travelSpots);
-                  Navigator.pop(context);
-                },
+              Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
+                child: DefaultButton(
+                  text: "Создать",
+                  press: () {
+                    travelSpots.insert(0,
+                      TravelSpot(
+                        users: users..shuffle(),
+                        name: "Программист-тестировщик",
+                        image: "assets/test.png",
+                        date: DateTime(2020, 10, 15),
+                      ),
+                    );
+                    print(travelSpots);
+                    Navigator.pop(context);
+                  },
+                ),
               )
             ],
           ),

@@ -3,6 +3,8 @@ import 'data.dart';
 import '../../../../constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../widgets/default_button.dart';
+import '../../../../singleton.dart';
+import 'package:provider/provider.dart';
 
 class Eighth extends StatefulWidget {
   final PlanetInfo planetInfo;
@@ -110,10 +112,11 @@ class _EighthState extends State<Eighth> {
                         ),
                         SizedBox(height: 32),
                         DefaultButton(
-                          text: "Продолжить",
+                          text: "Далее",
                           press: () {
+                            Provider.of<Singleton>(context, listen: false).pageController.nextPage(
+                                duration: Duration(milliseconds: 300), curve: Curves.ease);
                             setState(() => descriptions[7] = checks.join());
-                            Navigator.pop(context);
                           },
                         ),
                       ],
@@ -143,34 +146,34 @@ class _EighthState extends State<Eighth> {
                 ],
               ),
             ),
-            // Positioned(
-            //   right: -64,
-            //   child: Hero(
-            //       tag: planetInfo.position,
-            //       child: planetInfo.iconImage.contains(".png")
-            //           ? Image.asset(planetInfo.iconImage, height: 200, width: 200)
-            //           : SvgPicture.asset(planetInfo.iconImage, height: 200, width: 200)),
-            // ),
-            // Positioned(
-            //   top: 60,
-            //   left: 32,
-            //   child: Text(
-            //     planetInfo.position.toString(),
-            //     style: TextStyle(
-            //       fontFamily: 'Avenir',
-            //       fontSize: 247,
-            //       color: primaryTextColor.withOpacity(0.08),
-            //       fontWeight: FontWeight.w900,
-            //     ),
-            //     textAlign: TextAlign.left,
-            //   ),
-            // ),
-            // IconButton(
-            //   icon: Icon(Icons.arrow_back_ios),
-            //   onPressed: () {
-            //     Navigator.pop(context);
-            //   },
-            // ),
+            Positioned(
+              right: -64,
+              child: Hero(
+                  tag: widget.planetInfo.position,
+                  child: widget.planetInfo.iconImage.contains(".png")
+                      ? Image.asset(widget.planetInfo.iconImage, height: 200, width: 200)
+                      : SvgPicture.asset(widget.planetInfo.iconImage, height: 200, width: 200)),
+            ),
+            Positioned(
+              top: 60,
+              left: 32,
+              child: Text(
+                widget.planetInfo.position.toString(),
+                style: TextStyle(
+                  fontFamily: 'Avenir',
+                  fontSize: 247,
+                  color: primaryTextColor.withOpacity(0.08),
+                  fontWeight: FontWeight.w900,
+                ),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            IconButton(
+              icon: Icon(Icons.arrow_back_ios),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
     ]
     )
       )

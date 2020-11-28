@@ -71,18 +71,35 @@ List<PlanetInfo> planets = [
       description:
       "Не указано",
       images: [
-        'https://cdn.pixabay.com/photo/2011/12/13/14/31/earth-11015_1280.jpg',
-        'https://cdn.pixabay.com/photo/2011/12/14/12/11/astronaut-11080_1280.jpg',
-        'https://cdn.pixabay.com/photo/2016/01/19/17/29/earth-1149733_1280.jpg',
-        'https://image.shutterstock.com/image-photo/3d-render-planet-earth-viewed-600w-1069251782.jpg'
-      ]),
+        'assets/1.svg',
+        'assets/2.svg',
+        'assets/3.svg',
+        'assets/4.svg'
+      ],
+images2: [
+'Полная занятость',
+'Частичная занятость',
+'Проектная работа',
+'Стажировка'
+]),
   PlanetInfo(4,
       name: 'График работы',
       name2: 'Выберите блоки',
       iconImage: 'assets/chart.svg',
       description:
       "Не указано",
-      images: []),
+      images: [
+        "assets/1.svg",
+        "assets/2.svg",
+        "assets/3.svg",
+        "assets/4.svg"
+      ],
+images2: [
+'5/2',
+'2/2',
+'40 часов в неделю',
+'20 часов в неделю'
+]),
   PlanetInfo(5,
       name: 'Образование',
       name2: 'Выберите факультет и направление',

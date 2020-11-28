@@ -4,81 +4,90 @@ import '../models/user.dart';
 import '../constants.dart';
 import '../size_config.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../pages/navbar/requests/details/details.dart';
+import '../models/movie.dart';
 
 class PlaceCard extends StatelessWidget {
   const PlaceCard({
     Key key,
     @required this.travelSport,
     this.isFullCard = false,
+    this.isTravellers = true,
     @required this.press,
   }) : super(key: key);
 
   final TravelSpot travelSport;
-  final bool isFullCard;
+  final bool isFullCard, isTravellers;
   final GestureTapCallback press;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: getProportionateScreenWidth(isFullCard ? 158 : 137),
-      child: Column(
-        children: [
-          AspectRatio(
-            aspectRatio: isFullCard ? 1.09 : 1.29,
-            child: Container(
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => DetailsScreen(movie: movies[0],)),
+      ),
+      child: SizedBox(
+        width: getProportionateScreenWidth(isFullCard ? 158 : 137),
+        child: Column(
+          children: [
+            AspectRatio(
+              aspectRatio: isFullCard ? 1.09 : 1.29,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
+                  image: DecorationImage(
+                      image: AssetImage(travelSport.image), fit: BoxFit.cover),
+                ),
+              ),
+            ),
+            Container(
+              width: getProportionateScreenWidth(isFullCard ? 158 : 137),
+              padding: EdgeInsets.all(
+                getProportionateScreenWidth(kDefaultPadding),
+              ),
               decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [kDefualtShadow],
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
                 ),
-                image: DecorationImage(
-                    image: AssetImage(travelSport.image), fit: BoxFit.cover),
               ),
-            ),
-          ),
-          Container(
-            width: getProportionateScreenWidth(isFullCard ? 158 : 137),
-            padding: EdgeInsets.all(
-              getProportionateScreenWidth(kDefaultPadding),
-            ),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow: [kDefualtShadow],
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
+              child: Column(
+                children: [
+                  Text(
+                    travelSport.name,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: isFullCard ? 17 : 12,
+                    ),
+                  ),
+                  if (isFullCard)
+                    Text(
+                      travelSport.date.day.toString(),
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4
+                          .copyWith(fontWeight: FontWeight.bold),
+                    ),
+                  if (isFullCard)
+                    Text(
+                      "заявок",
+                    ),
+                  VerticalSpacing(of: 10),
+                  isTravellers ? Travelers(
+                    users: travelSport.users,
+                  ) : Container()
+                ],
               ),
-            ),
-            child: Column(
-              children: [
-                Text(
-                  travelSport.name,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: isFullCard ? 17 : 12,
-                  ),
-                ),
-                if (isFullCard)
-                  Text(
-                    travelSport.date.day.toString(),
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4
-                        .copyWith(fontWeight: FontWeight.bold),
-                  ),
-                if (isFullCard)
-                  Text(
-                    "заявок",
-                  ),
-                VerticalSpacing(of: 10),
-                Travelers(
-                  users: travelSport.users,
-                ),
-              ],
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

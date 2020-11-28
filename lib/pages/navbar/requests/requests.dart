@@ -6,6 +6,7 @@ import 'top_travellers.dart';
 import '../../../constants.dart';
 import 'package:page_transition/page_transition.dart';
 import 'add_request/request.dart';
+import '../../../fade_animations.dart';
 
 class Requests extends StatefulWidget {
   @override
@@ -61,12 +62,12 @@ class _RequestsState extends State<Requests> with SingleTickerProviderStateMixin
           top: false,
           child: Column(
             children: [
-              HomeHeader(),
-              VerticalSpacing(),
-              PopularPlaces(),
-              VerticalSpacing(),
-              TopTravelers(),
-              VerticalSpacing(),
+              FadeAnimation(0, HomeHeader(),),
+              FadeAnimation(0.2, VerticalSpacing()),
+              FadeAnimation(0.4, PopularPlaces()),
+              FadeAnimation(0.6, VerticalSpacing()),
+              FadeAnimation(0.8, TopTravelers()),
+              FadeAnimation(1, VerticalSpacing()),
             ],
           ),
         ),

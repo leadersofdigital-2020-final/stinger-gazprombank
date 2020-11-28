@@ -3,6 +3,8 @@ import 'data.dart';
 import '../../../../constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../widgets/default_button.dart';
+import '../../../../singleton.dart';
+import 'package:provider/provider.dart';
 
 enum SingingCharacter { five, two, fourty, twenty }
 
@@ -17,6 +19,8 @@ class Fourth extends StatefulWidget {
 
 class _FourthState extends State<Fourth> {
   SingingCharacter _character = SingingCharacter.five;
+
+  List<String> checks = ["", "", "", "", "", ""];
 
   @override
   Widget build(BuildContext context) {
@@ -57,60 +61,65 @@ class _FourthState extends State<Fourth> {
                         ),
                         Divider(color: Colors.black38),
                         SizedBox(height: 32),
-                        ListTile(
-                          title: Text('5/2'),
-                          leading: Radio(
-                            value: SingingCharacter.five,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('2/2'),
-                          leading: Radio(
-                            value: SingingCharacter.two,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('Гибкий график (40 часов в неделю)'),
-                          leading: Radio(
-                            value: SingingCharacter.fourty,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('Гибкий график (20 часов в неделю)'),
-                          leading: Radio(
-                            value: SingingCharacter.twenty,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
+                        Container(
+                          height: 500,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                            child: GridView.builder(
+                              itemCount: widget.planetInfo.images.length,
+                              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                mainAxisSpacing: kDefaultPadding,
+                                crossAxisSpacing: kDefaultPadding,
+                                childAspectRatio: 0.75,
+                              ),
+                              itemBuilder: (context, index) => Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Expanded(
+                                      child: Stack(
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () => setState(() => checks[index] = widget.planetInfo.images2[index]),
+                                            child: Container(
+                                              padding: EdgeInsets.all(kDefaultPadding),
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius: BorderRadius.circular(16),
+                                              ),
+                                              child: SvgPicture.asset(widget.planetInfo.images[index]),
+                                            ),
+                                          ),
+                                          checks[index] != "" ? Positioned(
+                                              bottom: 10,
+                                              right: 10,
+                                              child: Icon(
+                                                Icons.check,
+                                                color: Colors.green,
+                                              )
+                                          ) : Container()
+                                        ],
+                                      )
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
+                                    child: Text(
+                                      // products is out demo list
+                                      widget.planetInfo.images2[index],
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                  ),
+                                ],
+                              ),),
                           ),
                         ),
                         SizedBox(height: 32),
                         DefaultButton(
-                          text: "Продолжить",
+                          text: "Далее",
                           press: () {
+                            Provider.of<Singleton>(context, listen: false).pageController.nextPage(
+                                duration: Duration(milliseconds: 300), curve: Curves.ease);
                             setState(() => descriptions[3] = "2/2");
-                            Navigator.pop(context);
                           },
                         ),
                       ],

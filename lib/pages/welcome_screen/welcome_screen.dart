@@ -5,6 +5,7 @@ import '../../widgets/rounded_button.dart';
 import '../../constants.dart';
 import '../login/login.dart';
 import '../signup/signup.dart';
+import '../../fade_animations.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -16,17 +17,20 @@ class WelcomeScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
+                  FadeAnimation(0, Text(
                     "ДОБРО ПОЖАЛОВАТЬ В HR ВОК",
                     style: TextStyle(fontWeight: FontWeight.bold),
+                  ),),
+                  SizedBox(height: size.height * 0.05),
+                  FadeAnimation(
+                    0.2,
+                    SvgPicture.asset(
+                      "assets/icons/chat.svg",
+                      height: size.height * 0.45,
+                    ),
                   ),
                   SizedBox(height: size.height * 0.05),
-                  SvgPicture.asset(
-                    "assets/icons/chat.svg",
-                    height: size.height * 0.45,
-                  ),
-                  SizedBox(height: size.height * 0.05),
-                  RoundedButton(
+                  FadeAnimation(0.4, RoundedButton(
                     text: "ВОЙТИ",
                     press: () {
                       Navigator.push(
@@ -38,8 +42,8 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       );
                     },
-                  ),
-                  RoundedButton(
+                  ),),
+                  FadeAnimation(0.6, RoundedButton(
                     text: "ЗАРЕГИСТРИРОВАТЬСЯ",
                     color: kPrimaryLightColor,
                     textColor: Colors.black,
@@ -53,7 +57,7 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       );
                     },
-                  ),
+                  ),)
                 ],
               ),
             )

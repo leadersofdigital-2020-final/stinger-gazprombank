@@ -3,6 +3,8 @@ import 'data.dart';
 import '../../../../constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../widgets/default_button.dart';
+import '../../../../singleton.dart';
+import 'package:provider/provider.dart';
 
 enum SingingCharacter { full, half, project, internship }
 
@@ -17,6 +19,8 @@ class Third extends StatefulWidget {
 
 class _ThirdState extends State<Third> {
   SingingCharacter _character = SingingCharacter.full;
+
+  List<String> checks = ["", "", "", "", "", ""];
 
   @override
   Widget build(BuildContext context) {
@@ -57,60 +61,65 @@ class _ThirdState extends State<Third> {
                         ),
                         Divider(color: Colors.black38),
                         SizedBox(height: 32),
-                        ListTile(
-                          title: Text('Полная занятость'),
-                          leading: Radio(
-                            value: SingingCharacter.full,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('Частичная занятость'),
-                          leading: Radio(
-                            value: SingingCharacter.half,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('Проектная работа'),
-                          leading: Radio(
-                            value: SingingCharacter.project,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('Стажировка'),
-                          leading: Radio(
-                            value: SingingCharacter.internship,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
+                        Container(
+                          height: 500,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                            child: GridView.builder(
+                              itemCount: widget.planetInfo.images.length,
+                              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                mainAxisSpacing: kDefaultPadding,
+                                crossAxisSpacing: kDefaultPadding,
+                                childAspectRatio: 0.75,
+                              ),
+                              itemBuilder: (context, index) => Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Expanded(
+                                      child: Stack(
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () => setState(() => checks[index] = widget.planetInfo.images2[index]),
+                                            child: Container(
+                                              padding: EdgeInsets.all(kDefaultPadding),
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius: BorderRadius.circular(16),
+                                              ),
+                                              child: SvgPicture.asset(widget.planetInfo.images[index]),
+                                            ),
+                                          ),
+                                          checks[index] != "" ? Positioned(
+                                              bottom: 10,
+                                              right: 10,
+                                              child: Icon(
+                                                Icons.check,
+                                                color: Colors.green,
+                                              )
+                                          ) : Container()
+                                        ],
+                                      )
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
+                                    child: Text(
+                                      // products is out demo list
+                                      widget.planetInfo.images2[index],
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                  ),
+                                ],
+                              ),),
                           ),
                         ),
                         SizedBox(height: 32),
                         DefaultButton(
-                          text: "Продолжить",
+                          text: "Далее",
                           press: () {
+                            Provider.of<Singleton>(context, listen: false).pageController.nextPage(
+                                duration: Duration(milliseconds: 300), curve: Curves.ease);
                             setState(() => descriptions[2] = "Частичная занятость");
-                            Navigator.pop(context);
                           },
                         ),
                       ],

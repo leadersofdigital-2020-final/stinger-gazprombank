@@ -4,6 +4,8 @@ import '../../../../constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/cupertino.dart';
 import '../../../../widgets/default_button.dart';
+import '../../../../singleton.dart';
+import 'package:provider/provider.dart';
 
 enum SingingCharacter { ur, ist, inya, mat, ivt, phys, fspn, bio, ek, psyc, phil }
 
@@ -98,16 +100,21 @@ class _FifthState extends State<Fifth> {
                             },
                           ),
                         ),
-                        ListTile(
-                          title: Text('Математический'),
-                          leading: Radio(
-                            value: SingingCharacter.mat,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
+                        GestureDetector(
+                          onTap: () => setState(() {
+                            _character = SingingCharacter.mat;
+                          }),
+                          child: ListTile(
+                            title: Text('Математический'),
+                            leading: Radio(
+                              value: SingingCharacter.mat,
+                              groupValue: _character,
+                              onChanged: (SingingCharacter value) {
+                                setState(() {
+                                  _character = value;
+                                });
+                              },
+                            ),
                           ),
                         ),
                         ListTile(
@@ -279,10 +286,11 @@ class _FifthState extends State<Fifth> {
                   ),
                   SizedBox(height: 32),
                   DefaultButton(
-                    text: "Продолжить",
+                    text: "Далее",
                     press: () {
+                      Provider.of<Singleton>(context, listen: false).pageController.nextPage(
+                          duration: Duration(milliseconds: 300), curve: Curves.ease);
                       setState(() => descriptions[4] = "Математический, Информационная безопасность");
-                      Navigator.pop(context);
                     },
                   ),
                 ],

@@ -3,7 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'requests/requests.dart';
 import 'vacancy.dart';
 import 'candidates.dart';
-import 'account.dart';
+import 'profile/profile.dart';
 
 class Navbar extends StatefulWidget {
   @override
@@ -32,7 +32,7 @@ class _NavbarState extends State<Navbar> {
           Requests(),
           Vacancy(),
           Candidates(),
-          Account(),
+          ProfileScreen(),
         ],
       ),
       bottomNavigationBar: Container(

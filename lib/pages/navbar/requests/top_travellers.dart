@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../../widgets/section_title.dart';
 import '../../../models/user.dart';
-
+import '../../../models/product.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import 'soskatel/soskatel.dart';
 
 class TopTravelers extends StatelessWidget {
   const TopTravelers({
@@ -34,7 +35,10 @@ class TopTravelers extends StatelessWidget {
                 topTravelers.length,
                     (index) => UserCard(
                   user: topTravelers[index],
-                  press: () {},
+                  press: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Soskatel(product: product,)),
+                  ),
                 ),
               ),
             ],

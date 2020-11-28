@@ -36,6 +36,7 @@ class PopularPlaces extends StatelessWidget {
                   child: PlaceCard(
                     travelSport: travelSpots[index],
                     press: () {},
+                    isTravellers: travelSpots.length == 4 && index == 0 ? false : true,
                   ),
                 ),
               ),

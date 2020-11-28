@@ -4,6 +4,8 @@ import '../../../../constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../widgets/section_title.dart';
 import '../../../../widgets/default_button.dart';
+import '../../../../singleton.dart';
+import 'package:provider/provider.dart';
 
 class Second extends StatefulWidget {
   final PlanetInfo planetInfo;
@@ -125,10 +127,11 @@ class _SecondState extends State<Second> {
                   ),
                   SizedBox(height: 32),
                   DefaultButton(
-                    text: "Продолжить",
+                    text: "Далее",
                     press: () {
+                      Provider.of<Singleton>(context, listen: false).pageController.nextPage(
+                          duration: Duration(milliseconds: 300), curve: Curves.ease);
                       setState(() => descriptions[1] = textEditingController.text);
-                      Navigator.pop(context);
                     },
                   ),
                 ],
