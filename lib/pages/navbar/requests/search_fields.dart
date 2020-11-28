@@ -5,7 +5,10 @@ import '../../../size_config.dart';
 class SearchField extends StatelessWidget {
   const SearchField({
     Key key,
+    this.text
   }) : super(key: key);
+
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,7 @@ class SearchField extends StatelessWidget {
       child: TextField(
         onChanged: (value) {},
         decoration: InputDecoration(
-          hintText: "Найдите заявку",
+          hintText: text,
           hintStyle: TextStyle(
             fontSize: getProportionateScreenWidth(12),
             color: Color(0xFF464A7E),

@@ -42,7 +42,7 @@ class HomeHeader extends StatelessWidget {
           ),
           Positioned(
             bottom: getProportionateScreenWidth(-25),
-            child: SearchField(),
+            child: SearchField(text: "Найдите заявку"),
           )
         ],
       ),

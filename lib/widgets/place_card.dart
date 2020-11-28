@@ -3,6 +3,7 @@ import '../models/travel_spot.dart';
 import '../models/user.dart';
 import '../constants.dart';
 import '../size_config.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class PlaceCard extends StatelessWidget {
   const PlaceCard({
@@ -129,7 +130,14 @@ class Travelers extends StatelessWidget {
 
   ClipOval buildTravelerFace(int index) {
     return ClipOval(
-      child: Image.asset(
+      child: users[index].image.contains(".svg")
+      ? SvgPicture.asset(
+        users[index].image,
+        height: getProportionateScreenWidth(28),
+        width: getProportionateScreenWidth(28),
+        fit: BoxFit.cover,
+      )
+          : Image.asset(
         users[index].image,
         height: getProportionateScreenWidth(28),
         width: getProportionateScreenWidth(28),

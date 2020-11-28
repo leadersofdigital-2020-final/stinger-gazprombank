@@ -36,7 +36,7 @@ class _NavbarState extends State<Navbar> {
         ],
       ),
       bottomNavigationBar: Container(
-          height: 83,
+          height: 100,
           decoration: BoxDecoration(color: Colors.white, boxShadow: [
             BoxShadow(blurRadius: 20, color: Colors.black.withOpacity(.1))
           ]),

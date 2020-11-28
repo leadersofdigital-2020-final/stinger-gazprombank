@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../size_config.dart';
 import '../constants.dart';
 import '../widgets/default_button.dart';
-import 'navbar/navbar.dart';
+import 'welcome_screen/welcome_screen.dart';
 
 class Onboarding extends StatefulWidget {
   @override
@@ -79,7 +79,7 @@ class _OnboardingState extends State<Onboarding> {
                         press: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Navbar()),
+                            MaterialPageRoute(builder: (context) => WelcomeScreen()),
                           );
                         },
                       ),
