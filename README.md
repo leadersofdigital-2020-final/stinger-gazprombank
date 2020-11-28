@@ -1,16 +1,16 @@
 # gazprombank
 
-A new Flutter application.
+Установка Flutter https://flutter.dev/docs/get-started/install/
 
-## Getting Started
+./stinger_back - backend часть на (бот + Django) - создание откликов (соискатель)
+./stinger_crm_web - CRM для оценки резюме (HR)
+./stinger_gazprombank - приложение для создания вакансий (руководитель)
 
-This project is a starting point for a Flutter application.
+Запуск Flutter - 
 
-A few resources to get you started if this is your first Flutter project:
+'''
+pub get - для получения библиотек
+'''
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Запуск Flutter Web - https://flutter.dev/docs/get-started/web
+Запуск Backend описан в репозитории
