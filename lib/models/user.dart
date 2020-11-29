@@ -11,10 +11,10 @@ class User {
 List<User> topTravelers = [user1, user2, user3, user4];
 
 // demo user
-User user1 = User(name: "Джеймс", image: "assets/images/james.png");
-User user2 = User(name: "Руслан", image: "assets/images/John.png");
-User user3 = User(name: "Мэрри", image: "assets/images/marry.png");
-User user4 = User(name: "Рози", image: "assets/images/rosy.png");
+User user1 = User(name: "Евгений", image: "assets/images/женя.JPG");
+User user2 = User(name: "Дык", image: "assets/images/дык.JPG");
+User user3 = User(name: "Алексей", image: "assets/images/ава.jpg");
+User user4 = User(name: "Павел", image: "assets/images/паша.JPG");
 
 User user5 = User(name: "Социальный пакет", image: "assets/social.svg");
 User user6 = User(name: "ДМС", image: "assets/medical.svg");

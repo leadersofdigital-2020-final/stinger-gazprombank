@@ -5,6 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../widgets/default_button.dart';
 import '../../../../singleton.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
+import '../../../../models/travel_spot.dart';
 
 class Eleventh extends StatefulWidget {
   final PlanetInfo planetInfo;
@@ -76,10 +78,24 @@ class _EleventhState extends State<Eleventh> {
                         SizedBox(height: 32),
                         DefaultButton(
                           text: "Создать",
-                          press: () {
+                          press: () async {
+                            travelSpots.insert(0,
+                              TravelSpot(
+                                users: users..shuffle(),
+                                name: "Программист-тестировщик",
+                                image: "assets/test.png",
+                                date: DateTime(2020, 10, 15),
+                              ),
+                            );
                             setState(() => descriptions[10] = textEditingController.text);
                             Navigator.pop(context);
                             Navigator.pop(context);
+                            final response = await http.get(
+                              'http://127.0.0.1:8000/vacancy/',
+                              headers: {
+                                'Content-Type': 'application/json',
+                              },
+                            );
                           },
                         ),
                       ],

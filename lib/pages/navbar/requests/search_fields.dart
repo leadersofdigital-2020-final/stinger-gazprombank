@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../../size_config.dart';
+import '../../../constants.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField({
@@ -13,37 +14,22 @@ class SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: getProportionateScreenWidth(313),
-      height: getProportionateScreenWidth(50),
+      width: SizeConfig.screenWidth * 0.9,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(5),
-        border: Border.all(
-          color: Color(0xFF3E4067),
-        ),
-        boxShadow: [
-          BoxShadow(
-            offset: Offset(3, 3),
-            blurRadius: 10,
-            color: Colors.black.withOpacity(0.16),
-            spreadRadius: -2,
-          )
-        ],
+        color: kSecondaryColor.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(15),
       ),
       child: TextField(
-        onChanged: (value) {},
+        onChanged: (value) => print(value),
         decoration: InputDecoration(
-          hintText: text,
-          hintStyle: TextStyle(
-            fontSize: getProportionateScreenWidth(12),
-            color: Color(0xFF464A7E),
-          ),
-          suffixIcon: Icon(Icons.search),
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(20),
-            vertical: getProportionateScreenWidth(10),
-          ),
-        ),
+            contentPadding: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(20),
+                vertical: getProportionateScreenWidth(9)),
+            border: InputBorder.none,
+            focusedBorder: InputBorder.none,
+            enabledBorder: InputBorder.none,
+            hintText: "Поиск по вакансиям",
+            prefixIcon: Icon(Icons.search)),
       ),
     );
   }

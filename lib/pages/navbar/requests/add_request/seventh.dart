@@ -105,21 +105,24 @@ class _SeventhState extends State<Seventh> {
                             "до " + doubleToString(sliderValue1 * 100000)
                         ),
                         SizedBox(height: 32),
-                        DefaultButton(
-                          text: "Далее",
-                          press: () {
-                            setState(() {
-                              Provider.of<Singleton>(context, listen: false).pageController.nextPage(
-                                  duration: Duration(milliseconds: 300), curve: Curves.ease);
-                              descriptions[6] =
-                                  "от " + doubleToString(sliderValue * 100000) +
-                                      " до " +
-                                      doubleToString(sliderValue1 * 100000);
-                              fullValue = descriptions[6];
-                            }
-                            );
-                          },
-                        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 16.0),
+                          child: DefaultButton(
+                            text: "Далее",
+                            press: () {
+                              setState(() {
+                                Provider.of<Singleton>(context, listen: false).pageController.nextPage(
+                                    duration: Duration(milliseconds: 300), curve: Curves.ease);
+                                descriptions[6] =
+                                    "от " + doubleToString(sliderValue * 100000) +
+                                        " до " +
+                                        doubleToString(sliderValue1 * 100000);
+                                fullValue = descriptions[6];
+                              }
+                              );
+                            },
+                          ),
+                        )
                       ],
                     )
                   ),

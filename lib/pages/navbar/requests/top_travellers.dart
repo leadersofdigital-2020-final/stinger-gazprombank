@@ -15,7 +15,7 @@ class TopTravelers extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SectionTitle(title: "Соискатели", press: () {}),
+        SectionTitle(title: "Соискатели", isAll: true, press: () {}),
         VerticalSpacing(of: 20),
         Container(
           margin: EdgeInsets.symmetric(
@@ -37,7 +37,7 @@ class TopTravelers extends StatelessWidget {
                   user: topTravelers[index],
                   press: () => Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Soskatel(product: product,)),
+                    MaterialPageRoute(builder: (context) => Soskatel()),
                   ),
                 ),
               ),

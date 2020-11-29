@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import '../size_config.dart';
 import '../constants.dart';
 import '../widgets/default_button.dart';
 import 'welcome_screen/welcome_screen.dart';
+import 'package:http/http.dart' as http;
 
 class Onboarding extends StatefulWidget {
   @override

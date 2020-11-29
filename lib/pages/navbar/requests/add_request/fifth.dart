@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import '../../../../widgets/default_button.dart';
 import '../../../../singleton.dart';
 import 'package:provider/provider.dart';
+import '../search_fields.dart';
 
 enum SingingCharacter { ur, ist, inya, mat, ivt, phys, fspn, bio, ek, psyc, phil }
 
@@ -63,145 +64,7 @@ class _FifthState extends State<Fifth> {
                           textAlign: TextAlign.left,
                         ),
                         Divider(color: Colors.black38),
-                        SizedBox(height: 32),
-                        ListTile(
-                          title: Text('Юридический'),
-                          leading: Radio(
-                            value: SingingCharacter.ur,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('Исторический'),
-                          leading: Radio(
-                            value: SingingCharacter.ist,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('Институт иностранных языков'),
-                          leading: Radio(
-                            value: SingingCharacter.inya,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () => setState(() {
-                            _character = SingingCharacter.mat;
-                          }),
-                          child: ListTile(
-                            title: Text('Математический'),
-                            leading: Radio(
-                              value: SingingCharacter.mat,
-                              groupValue: _character,
-                              onChanged: (SingingCharacter value) {
-                                setState(() {
-                                  _character = value;
-                                });
-                              },
-                            ),
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('ИВТ'),
-                          leading: Radio(
-                            value: SingingCharacter.ivt,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('Физческий'),
-                          leading: Radio(
-                            value: SingingCharacter.phys,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('ФСПН'),
-                          leading: Radio(
-                            value: SingingCharacter.fspn,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('Биологии и экологии'),
-                          leading: Radio(
-                            value: SingingCharacter.bio,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('Экологии'),
-                          leading: Radio(
-                            value: SingingCharacter.ek,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('Психологии'),
-                          leading: Radio(
-                            value: SingingCharacter.psyc,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        ListTile(
-                          title: Text('Физиологии и коммуникации'),
-                          leading: Radio(
-                            value: SingingCharacter.phil,
-                            groupValue: _character,
-                            onChanged: (SingingCharacter value) {
-                              setState(() {
-                                _character = value;
-                              });
-                            },
-                          ),
-                        ),
-                        SizedBox(height: 32),
+                        SearchField(text: "Введите факультет"),
                         Divider(color: Colors.black38),
                       ],
                     ),
@@ -219,80 +82,22 @@ class _FifthState extends State<Fifth> {
                       textAlign: TextAlign.left,
                     ),
                   ),
-                  _character == SingingCharacter.mat
-                      ? Column(
-                    children: [
-                      ListTile(
-                        title: Text('ПМИ'),
-                        leading: Radio(
-                          value: SingingCharacter1.pmi,
-                          groupValue: _character1,
-                          onChanged: (SingingCharacter1 value) {
-                            setState(() {
-                              _character1 = value;
-                            });
-                          },
-                        ),
-                      ),
-                      ListTile(
-                        title: Text('Информационная безопасность'),
-                        leading: Radio(
-                          value: SingingCharacter1.ib,
-                          groupValue: _character1,
-                          onChanged: (SingingCharacter1 value) {
-                            setState(() {
-                              _character1 = value;
-                            });
-                          },
-                        ),
-                      ),
-                      ListTile(
-                        title: Text('МКН'),
-                        leading: Radio(
-                          value: SingingCharacter1.mkn,
-                          groupValue: _character1,
-                          onChanged: (SingingCharacter1 value) {
-                            setState(() {
-                              _character1 = value;
-                            });
-                          },
-                        ),
-                      ),
-                      ListTile(
-                        title: Text('Компьютерная безопасность'),
-                        leading: Radio(
-                          value: SingingCharacter1.rb,
-                          groupValue: _character1,
-                          onChanged: (SingingCharacter1 value) {
-                            setState(() {
-                              _character1 = value;
-                            });
-                          },
-                        ),
-                      ),
-                    ],
-                  )
-                  : ListTile(
-                    title: Text('Юриспруденция'),
-                    leading: Radio(
-                      value: SingingCharacter.ur,
-                      groupValue: _character,
-                      onChanged: (SingingCharacter value) {
-                        setState(() {
-                          _character = value;
-                        });
+      Padding(
+        padding: const EdgeInsets.only(left: 32.0, right: 16.0),
+        child: SearchField(text: "Введите направление"),
+      ),
+                  SizedBox(height: 32),
+                  Padding(
+                    padding: EdgeInsets.only(left: 32.0, right: 32),
+                    child: DefaultButton(
+                      text: "Далее",
+                      press: () {
+                        Provider.of<Singleton>(context, listen: false).pageController.nextPage(
+                            duration: Duration(milliseconds: 300), curve: Curves.ease);
+                        setState(() => descriptions[4] = "Математический, Информационная безопасность");
                       },
                     ),
-                  ),
-                  SizedBox(height: 32),
-                  DefaultButton(
-                    text: "Далее",
-                    press: () {
-                      Provider.of<Singleton>(context, listen: false).pageController.nextPage(
-                          duration: Duration(milliseconds: 300), curve: Curves.ease);
-                      setState(() => descriptions[4] = "Математический, Информационная безопасность");
-                    },
-                  ),
+                  )
                 ],
               ),
             ),

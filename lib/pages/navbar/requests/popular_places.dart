@@ -5,6 +5,7 @@ import '../../../models/travel_spot.dart';
 import 'events_screen.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import '../../../fade_animations.dart';
 
 class PopularPlaces extends StatelessWidget {
   const PopularPlaces({
@@ -17,6 +18,7 @@ class PopularPlaces extends StatelessWidget {
       children: [
         SectionTitle(
           title: "Библиотека заявок",
+          isAll: true,
           press: () => Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => EventsScreen()),
@@ -33,11 +35,14 @@ class PopularPlaces extends StatelessWidget {
                     (index) => Padding(
                   padding: EdgeInsets.only(
                       left: getProportionateScreenWidth(kDefaultPadding)),
-                  child: PlaceCard(
-                    travelSport: travelSpots[index],
-                    press: () {},
-                    isTravellers: travelSpots.length == 4 && index == 0 ? false : true,
-                  ),
+                  child: FadeAnimation(
+                    0.4,
+                    PlaceCard(
+                      travelSport: travelSpots[index],
+                      press: () {},
+                      isTravellers: travelSpots.length == 4 && index == 0 ? false : true,
+                    ),
+                  )
                 ),
               ),
               SizedBox(

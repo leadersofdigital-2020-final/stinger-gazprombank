@@ -80,6 +80,7 @@ class _NinthState extends State<Ninth> {
                   ),
                   SectionTitle(
                       title: "Рекомендуемые вакансии",
+                      isAll: false,
                       press: () {}
                     // Navigator.push(
                     //   context,
@@ -126,14 +127,17 @@ class _NinthState extends State<Ninth> {
                         }),
                   ),
                   SizedBox(height: 32),
-                  DefaultButton(
-                    text: "Далее",
-                    press: () {
-                      Provider.of<Singleton>(context, listen: false).pageController.nextPage(
-                          duration: Duration(milliseconds: 300), curve: Curves.ease);
-                      setState(() => descriptions[8] = textEditingController.text);
-                    },
-                  ),
+      Padding(
+        padding: EdgeInsets.only(right: 32.0, left: 32.0),
+        child: DefaultButton(
+          text: "Далее",
+          press: () {
+            Provider.of<Singleton>(context, listen: false).pageController.nextPage(
+                duration: Duration(milliseconds: 300), curve: Curves.ease);
+            setState(() => descriptions[8] = textEditingController.text);
+          },
+        ),
+      )
                 ],
               ),
             ),

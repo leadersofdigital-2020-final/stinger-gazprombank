@@ -80,6 +80,7 @@ class _SecondState extends State<Second> {
                   ),
                   SectionTitle(
                     title: "Рекомендуемые вакансии",
+                    isAll: false,
                     press: () {}
                     // Navigator.push(
                     //   context,

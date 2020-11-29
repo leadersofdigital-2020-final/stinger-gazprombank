@@ -64,7 +64,7 @@ class _RequestsState extends State<Requests> with SingleTickerProviderStateMixin
             children: [
               FadeAnimation(0, HomeHeader(),),
               FadeAnimation(0.2, VerticalSpacing()),
-              FadeAnimation(0.4, PopularPlaces()),
+              PopularPlaces(),
               FadeAnimation(0.6, VerticalSpacing()),
               FadeAnimation(0.8, TopTravelers()),
               FadeAnimation(1, VerticalSpacing()),

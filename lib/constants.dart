@@ -26,4 +26,10 @@ Color gradientEndColor = Color(0xFF9354B9);
 
 const kTextLightColor = Color(0xFF9A9BB2);
 
+const kBlackColor = Color(0xFF393939);
+const kLightBlackColor = Color(0xFF8F8F8F);
+const kProgressIndicator = Color(0xFFBE7066);
+
+final kShadowColor = Color(0xFFD3D3D3).withOpacity(.84);
+
 String fullValue = "";
